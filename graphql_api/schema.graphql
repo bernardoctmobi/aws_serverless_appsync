@@ -1,0 +1,29 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Product {
+    PK: String!
+    SK: String!
+    Type: String
+    Price: Float
+}
+
+type Brand {
+    PK: String!
+    SK: String!
+    LastModified: String
+}
+
+type Mutation {
+    updateProduct(SK: String!, Type: String, Price: Float): Product!
+    updateBrand(SK: String!): Brand!
+}
+
+type Query {
+    productsList: [Product]!
+    getProduct(SK: String!): Product!
+    productsByBrand(SK: String!): [Product]!
+    brandsList: [Brand]!
+}
